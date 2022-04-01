@@ -1,4 +1,5 @@
-package com.example.hammer_systems_task.ui.screens.cart
+
+package com.example.hammer_systems_task.ui.screens.profile
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
