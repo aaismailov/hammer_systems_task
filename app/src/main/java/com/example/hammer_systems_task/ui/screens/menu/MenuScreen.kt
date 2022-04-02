@@ -7,32 +7,30 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.material.Divider
 import androidx.compose.material.Text
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import androidx.navigation.NavHostController
+import com.example.hammer_systems_task.R
 import com.example.hammer_systems_task.data.*
 import com.example.hammer_systems_task.ui.components.CustomChip
+import com.example.hammer_systems_task.ui.theme.Gray400
 import com.example.hammer_systems_task.ui.theme.Pink400
 import com.example.hammer_systems_task.ui.theme.Shapes
-import com.google.accompanist.pager.ExperimentalPagerApi
+import com.example.hammer_systems_task.ui.theme.Typography
 import me.onebone.toolbar.CollapsingToolbarScaffold
 import me.onebone.toolbar.ScrollStrategy
 import me.onebone.toolbar.rememberCollapsingToolbarScaffoldState
 
-@OptIn(ExperimentalPagerApi::class)
 @Composable
-fun MenuScreen(
-    navController: NavHostController
-) {
+fun MenuScreen() {
 
     val viewModel: MenuViewModel = viewModel()
 
@@ -47,7 +45,6 @@ fun MenuScreen(
     )
 }
 
-@ExperimentalPagerApi
 @Composable
 fun MenuScreenContent(
     list: List<FoodElement>,
@@ -69,13 +66,14 @@ fun MenuScreenContent(
                     items(count = 3, itemContent = { page ->
                         Box(
                             modifier = Modifier
-                                .width(350.dp)
+                                .width(dimensionResource(R.dimen.banner_width))
                         ) {
                             Image(
-                                painter = painterResource(id = listBanner[page].image),
+                                painter = painterResource(listBanner[page].image),
                                 contentDescription = null,
                                 contentScale = ContentScale.Crop,
-                                modifier = Modifier.fillMaxSize()
+                                modifier = Modifier
+                                    .fillMaxSize()
                             )
                         }
                     })
@@ -91,10 +89,11 @@ fun MenuScreenContent(
                 scrollStrategy = ScrollStrategy.ExitUntilCollapsed,
                 toolbar = {
                     LazyRow(
-                        modifier = Modifier.padding(
-                            vertical = 8.dp,
-                            horizontal = 10.dp
-                        )
+                        modifier = Modifier
+                            .padding(
+                                vertical = dimensionResource(R.dimen.category_vert),
+                                horizontal = dimensionResource(R.dimen.category_hor)
+                            )
                     ) {
                         items(count = 4, itemContent = { page ->
                             CustomChip(
@@ -103,7 +102,8 @@ fun MenuScreenContent(
                                 onSelectedChange = {
                                     onSelectedChange(listCategory[page].value)
                                 },
-                                modifier = Modifier.padding(horizontal = 6.dp)
+                                modifier = Modifier
+                                    .padding(horizontal = dimensionResource(R.dimen.category_between))
                             )
                         })
                     }
@@ -116,32 +116,36 @@ fun MenuScreenContent(
                                 color = Color(0xFFF3F5F9),
                                 modifier = Modifier
                                     .fillMaxWidth()
-                                    .height(1.dp)
+                                    .height(dimensionResource(R.dimen.divider_height))
                             )
                             Row(
                                 modifier = Modifier
                                     .fillMaxWidth()
-                                    .padding(20.dp)
+                                    .padding(dimensionResource(R.dimen.item_padding))
                             ) {
                                 Image(
                                     painter = painterResource(list[page].image),
                                     contentDescription = null,
-                                    modifier = Modifier.size(135.dp)
+                                    modifier = Modifier
+                                        .size(dimensionResource(R.dimen.image_size))
                                 )
                                 Column(
                                     modifier = Modifier
                                         .fillMaxHeight()
-                                        .padding(8.dp)
+                                        .padding(horizontal = dimensionResource(R.dimen.item_text_padding))
                                 ) {
-
                                     Text(
                                         text = list[page].title,
+                                        style = Typography.h5,
                                         modifier = Modifier.fillMaxWidth()
                                     )
-
                                     Text(
                                         text = list[page].body,
-                                        modifier = Modifier.fillMaxWidth()
+                                        style = Typography.body1,
+                                        color = Gray400,
+                                        modifier = Modifier
+                                            .fillMaxWidth()
+                                            .padding(vertical = dimensionResource(R.dimen.item_body_padding))
                                     )
                                     Row(
                                         horizontalArrangement = Arrangement.End,
@@ -160,13 +164,14 @@ fun MenuScreenContent(
                                             Row(
                                                 horizontalArrangement = Arrangement.Center,
                                                 modifier = Modifier
-                                                    .width(98.dp)
+                                                    .width(dimensionResource(R.dimen.chip_width))
                                             ) {
                                                 Text(
                                                     text = list[page].price,
                                                     textAlign = TextAlign.End,
-                                                    style = MaterialTheme.typography.body2,
-                                                    modifier = Modifier.padding(8.dp)
+                                                    style = Typography.body2,
+                                                    modifier = Modifier
+                                                        .padding(dimensionResource(R.dimen.chip_text_padding))
                                                 )
                                             }
                                         }
@@ -181,7 +186,6 @@ fun MenuScreenContent(
     }
 }
 
-@OptIn(ExperimentalPagerApi::class)
 @Preview
 @Composable
 fun MenuScreenPreview() {

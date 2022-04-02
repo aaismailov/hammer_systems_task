@@ -1,7 +1,5 @@
 package com.example.hammer_systems_task.data
 
-import androidx.compose.ui.graphics.painter.Painter
-import androidx.compose.ui.res.painterResource
 import com.example.hammer_systems_task.R
 
 enum class FoodElement(

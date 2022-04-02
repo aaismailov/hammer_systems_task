@@ -7,6 +7,7 @@ import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.res.painterResource
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
@@ -15,6 +16,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import com.example.hammer_systems_task.data.NavItems
 import com.example.hammer_systems_task.ui.theme.Gray600
 import com.example.hammer_systems_task.ui.theme.Pink400
+import com.example.hammer_systems_task.ui.theme.Typography
 
 
 @Composable
@@ -49,11 +51,14 @@ fun RowScope.AddItem(
 ) {
     BottomNavigationItem(
         label = {
-            Text(text = items.caption)
+            Text(
+                text = items.caption,
+                style = Typography.caption
+            )
         },
         icon = {
             Icon(
-                imageVector = items.icon,
+                painterResource(items.icon),
                 contentDescription = null
             )
         },

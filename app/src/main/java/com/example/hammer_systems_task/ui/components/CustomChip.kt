@@ -12,12 +12,15 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Paint
 import androidx.compose.ui.graphics.drawscope.drawIntoCanvas
 import androidx.compose.ui.graphics.toArgb
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.example.hammer_systems_task.R
 import com.example.hammer_systems_task.ui.theme.Pink200
 import com.example.hammer_systems_task.ui.theme.Pink400
 import com.example.hammer_systems_task.ui.theme.Shapes
+import com.example.hammer_systems_task.ui.theme.Typography
 
 @Composable
 fun CustomChip(
@@ -55,14 +58,17 @@ fun CustomChip(
                         onSelectedChange(text)
                     }
                 )
-                .width(98.dp)
+                .width(dimensionResource(R.dimen.chip_width))
 
         ) {
             Text(
                 text = text,
                 textAlign = TextAlign.Center,
-                style = MaterialTheme.typography.body2,
-                modifier = Modifier.padding(8.dp)
+                style = when {
+                    selected -> Typography.subtitle1
+                    else -> Typography.body2
+                },
+                modifier = Modifier.padding(dimensionResource(R.dimen.chip_text_padding))
             )
         }
     }

@@ -18,7 +18,6 @@ import com.example.hammer_systems_task.ui.theme.Hammer_Systems_taskTheme
 import com.example.hammer_systems_task.data.NavItems
 import com.example.hammer_systems_task.ui.components.BottomBar
 import com.example.hammer_systems_task.ui.components.TopBar
-import com.google.accompanist.insets.ProvideWindowInsets
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,21 +25,19 @@ class MainActivity : ComponentActivity() {
         setContent {
             val navController = rememberNavController()
             Hammer_Systems_taskTheme {
-                ProvideWindowInsets(windowInsetsAnimationsEnabled = true) {
-                    Scaffold(
-                        topBar = {
-                            TopBar()
-                        },
-                        bottomBar = {
-                            BottomBar(navController = navController)
-                        },
-                        content = {
-                            MainScreen(
-                                navController = navController
-                            )
-                        }
-                    )
-                }
+                Scaffold(
+                    topBar = {
+                        TopBar()
+                    },
+                    bottomBar = {
+                        BottomBar(navController = navController)
+                    },
+                    content = {
+                        MainScreen(
+                            navController = navController
+                        )
+                    }
+                )
             }
         }
     }
@@ -60,21 +57,15 @@ fun MainScreen(
             startDestination = NavItems.Menu.route
         ) {
             composable(NavItems.Menu.route) {
-                MenuScreen(
-                    navController = navController
-                )
+                MenuScreen()
             }
 
             composable(NavItems.Profile.route) {
-                ProfileScreen(
-                    navController = navController
-                )
+                ProfileScreen()
             }
 
             composable(NavItems.Cart.route) {
-                CartScreen(
-                    navController = navController
-                )
+                CartScreen()
             }
         }
     }

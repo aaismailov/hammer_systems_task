@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="banner_width">370dp</dimen>
+    <dimen name="category_vert">8dp</dimen>
+    <dimen name="category_hor">10dp</dimen>
+    <dimen name="category_between">6dp</dimen>
+    <dimen name="divider_height">1dp</dimen>
+    <dimen name="item_padding">18dp</dimen>
+    <dimen name="item_text_padding">18dp</dimen>
+    <dimen name="item_body_padding">8dp</dimen>
+    <dimen name="chip_width">88dp</dimen>
+    <dimen name="chip_text_padding">8dp</dimen>
+    <dimen name="image_size">155dp</dimen>
+    <dimen name="top_bar_padding">20dp</dimen>
+    <dimen name="city_arrow_between">8dp</dimen>
+</resources>

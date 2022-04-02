@@ -1,4 +1,3 @@
-
 package com.example.hammer_systems_task.ui.screens.profile
 
 import androidx.compose.foundation.layout.*
@@ -7,34 +6,28 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.navigation.NavHostController
+import com.example.hammer_systems_task.R
 import com.example.hammer_systems_task.ui.theme.Typography
-import com.google.accompanist.insets.systemBarsPadding
 
 @Composable
-fun ProfileScreen(
-    navController: NavHostController
-) {
-    ProfileScreenContent(
-    )
+fun ProfileScreen() {
+    ProfileScreenContent()
 }
 
-
 @Composable
-fun ProfileScreenContent(
-) = Column(
+fun ProfileScreenContent() = Column(
     horizontalAlignment = Alignment.CenterHorizontally,
     verticalArrangement = Arrangement.Center,
     modifier = Modifier
         .fillMaxSize()
-        .systemBarsPadding()
 ) {
     Box(
         modifier = Modifier.fillMaxWidth()
     ) {
         Text(
-            text = "Вас не существует.",
+            text = stringResource(R.string.profile_body),
             style = Typography.body1,
             color = MaterialTheme.colors.onSecondary,
             modifier = Modifier
@@ -42,7 +35,6 @@ fun ProfileScreenContent(
         )
     }
 }
-
 
 @Preview
 @Composable
