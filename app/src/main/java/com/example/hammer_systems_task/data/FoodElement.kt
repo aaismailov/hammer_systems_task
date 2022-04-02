@@ -25,30 +25,6 @@ enum class FoodElement(
         "Лосось, томаты, оливки,соус песто,помидорки черри",
         R.drawable.ic_buffalo,
         "от 345 р"
-    ),
-    Pizza4(
-        "Нежный лосось",
-        "Лосось, томаты, оливки,соус песто,помидорки черри",
-        R.drawable.ic_buffalo,
-        "от 345 р"
-    ),
-    Pizza5(
-        "Нежный лосось",
-        "Лосось, томаты, оливки,соус песто,помидорки черри",
-        R.drawable.ic_buffalo,
-        "от 345 р"
-    ),
-    Pizza6(
-        "Нежный лосось",
-        "Лосось, томаты, оливки,соус песто,помидорки черри",
-        R.drawable.ic_buffalo,
-        "от 345 р"
-    ),
-    Pizza7(
-        "Нежный лосось",
-        "Лосось, томаты, оливки,соус песто,помидорки черри",
-        R.drawable.ic_buffalo,
-        "от 345 р"
     )
 }
 
@@ -57,10 +33,10 @@ fun getAllFoodElements(): List<FoodElement> {
         FoodElement.Pizza1,
         FoodElement.Pizza2,
         FoodElement.Pizza3,
-        FoodElement.Pizza4,
-        FoodElement.Pizza5,
-        FoodElement.Pizza6,
-        FoodElement.Pizza7
+        FoodElement.Pizza3,
+        FoodElement.Pizza3,
+        FoodElement.Pizza3,
+        FoodElement.Pizza3
     )
 }
 
